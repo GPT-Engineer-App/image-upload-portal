@@ -44,7 +44,7 @@ const Index = () => {
             <FaPaperclip color="gray.300" />
           </Box>
           <Input value={inputText} onChange={(e) => setInputText(e.target.value)} variant="unstyled" placeholder="" />
-          <Box height="100px" width="300px" overflow="hidden">
+          <Box height="100px" width="300px" overflow="hidden" display="flex" flexWrap="wrap">
             {selectedFiles.map((file, index) => (
               <Image key={index} src={file} alt={`preview ${index}`} boxSize="65px" objectFit="cover" />
             ))}
