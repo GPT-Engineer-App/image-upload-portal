@@ -35,7 +35,7 @@ const Index = () => {
     <Container maxW="container.lg" py={8}>
       <VStack spacing={8}>
         <Heading>Image Upload</Heading>
-        <Input type="file" accept="image/*" multiple onChange={handleFileChange} />
+        <Input type="file" accept="image/*" multiple onChange={handleFileChange} size="lg" height="100px" width="300px" />
         <Button leftIcon={<FaUpload />} onClick={handleUpload}>
           Upload Images
         </Button>
