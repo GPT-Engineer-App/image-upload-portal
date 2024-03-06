@@ -26,17 +26,13 @@ const Index = () => {
     });
   };
 
-  const imagesPreview = selectedFiles.map((file, index) => (
-    <Box key={index} boxShadow="sm" borderRadius="md" overflow="hidden">
-      <Image src={file} alt={`preview ${index}`} maxH="200px" w="auto" />
-    </Box>
-  ));
+  const imagesPreview = selectedFiles.map((file, index) => `<img src="${file}" alt="preview ${index}" style="max-height: 200px; width: auto;" />`).join("");
 
   return (
     <Container maxW="container.lg" py={8}>
       <VStack spacing={8}>
         <Heading>Image Upload</Heading>
-        <Box placeholder="Enter text here" value={inputText} onChange={(e) => setInputText(e.target.value)} size="lg" height="100px" width="300px" padding="8px" border="1px solid" borderColor="gray.200" contentEditable _placeholder={{ color: "gray.500" }} dangerouslySetInnerHTML={{ __html: imagesPreview.join("") + inputText }} />
+        <Box value={inputText} onChange={(e) => setInputText(e.target.value)} size="lg" height="100px" width="300px" padding="8px" border="1px solid" borderColor="gray.200" contentEditable _placeholder={{ color: "gray.500" }} dangerouslySetInnerHTML={{ __html: imagesPreview + inputText }} />
         <Input type="file" accept="image/*" multiple onChange={handleFileChange} size="lg" height="100px" width="300px" />
         <Button leftIcon={<FaUpload />} onClick={handleUpload}>
           Upload Images
