@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { Icon, Box, Button, Container, Input, Stack, Image, Text, VStack, Heading, useToast } from "@chakra-ui/react";
+import { Box, Button, Container, Input, Stack, Image, Text, VStack, Heading, useToast, InputGroup, InputLeftElement } from "@chakra-ui/react";
 import { FaUpload, FaPaperclip } from "react-icons/fa";
 
 const Index = () => {
@@ -32,9 +32,7 @@ const Index = () => {
     });
   };
 
-  const handleRemoveImage = (index) => {
-    setSelectedFiles((currentFiles) => currentFiles.filter((_, i) => i !== index));
-  };
+  const imagesPreview = selectedFiles.map((file, index) => `<img src="${file}" alt="preview ${index}" style="max-height: 200px; width: auto;" />`).join("");
 
   return (
     <Container maxW="container.lg" py={8}>
@@ -48,15 +46,7 @@ const Index = () => {
           <Input value={inputText} onChange={(e) => setInputText(e.target.value)} variant="unstyled" placeholder="" />
           <Box>
             {selectedFiles.map((file, index) => (
-              <Box position="relative" key={index}>
-                <Image src={file} alt={`preview ${index}`} boxSize="80px" objectFit="cover" />
-                <Button position="absolute" right="2" top="2" size="xs" borderRadius="full" bg="black" _hover={{ bg: "blackAlpha.800" }} onClick={() => handleRemoveImage(index)} zIndex="10">
-                  <Icon viewBox="0 0 24 24" color="white">
-                    <path d="M18 6L6 18" fill="white" />
-                    <path d="M6 6L18 18" fill="white" />
-                  </Icon>
-                </Button>
-              </Box>
+              <Image key={index} src={file} alt={`preview ${index}`} boxSize="80px" objectFit="cover" />
             ))}
             <Text>{inputText}</Text>
           </Box>
