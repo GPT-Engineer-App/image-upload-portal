@@ -46,7 +46,7 @@ const Index = () => {
           <Input value={inputText} onChange={(e) => setInputText(e.target.value)} variant="unstyled" placeholder="" />
           <Box height="100px" width="300px" overflow="hidden">
             {selectedFiles.map((file, index) => (
-              <Image key={index} src={file} alt={`preview ${index}`} boxSize="80px" objectFit="cover" />
+              <Image key={index} src={file} alt={`preview ${index}`} boxSize="65px" objectFit="cover" />
             ))}
             <Text>{inputText}</Text>
           </Box>
