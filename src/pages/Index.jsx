@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Box, Button, Container, Input, Stack, Image, Text, VStack, Heading, useToast, InputGroup, InputLeftElement } from "@chakra-ui/react";
 import { FaUpload, FaPaperclip } from "react-icons/fa";
 
@@ -13,6 +13,12 @@ const Index = () => {
       setSelectedFiles((prevImages) => prevImages.concat(filesArray));
       Array.from(event.target.files).map((file) => URL.revokeObjectURL(file));
     }
+  };
+
+  const fileInputRef = useRef(null);
+
+  const handleFileInputClick = () => {
+    fileInputRef.current.click();
   };
 
   const handleUpload = () => {
@@ -39,8 +45,8 @@ const Index = () => {
           <Box dangerouslySetInnerHTML={{ __html: imagesPreview + inputText }} />
         </Box>
         <InputGroup>
-          <InputLeftElement pointerEvents="none" children={<FaPaperclip color="gray.300" />} />
-          <Input type="file" accept="image/*" multiple onChange={handleFileChange} size="lg" height="100px" width="300px" />
+          <InputLeftElement pointerEvents="none" children={<FaPaperclip color="gray.300" onClick={handleFileInputClick} />} />
+          <Input type="file" accept="image/*" multiple onChange={handleFileChange} size="lg" height="100px" width="300px" ref={fileInputRef} />
         </InputGroup>
         <Button leftIcon={<FaUpload />} onClick={handleUpload}>
           Upload Images
