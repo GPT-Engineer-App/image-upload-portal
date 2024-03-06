@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { Box, Button, Container, Input, Stack, Image, Text, VStack, Heading, useToast } from "@chakra-ui/react";
+import { Box, Button, Container, Input, Stack, Image, Text, VStack, Heading, useToast, Textarea } from "@chakra-ui/react";
 import { FaUpload } from "react-icons/fa";
 
 const Index = () => {
   const [selectedFiles, setSelectedFiles] = useState([]);
+  const [inputText, setInputText] = useState("");
   const toast = useToast();
 
   const handleFileChange = (event) => {
@@ -35,6 +36,7 @@ const Index = () => {
     <Container maxW="container.lg" py={8}>
       <VStack spacing={8}>
         <Heading>Image Upload</Heading>
+        <Textarea placeholder="Enter text here" value={inputText} onChange={(e) => setInputText(e.target.value)} size="lg" height="100px" width="300px" />
         <Input type="file" accept="image/*" multiple onChange={handleFileChange} size="lg" height="100px" width="300px" />
         <Button leftIcon={<FaUpload />} onClick={handleUpload}>
           Upload Images
