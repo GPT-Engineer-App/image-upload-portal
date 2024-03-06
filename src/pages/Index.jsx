@@ -39,7 +39,7 @@ const Index = () => {
       <VStack spacing={8}>
         <Heading>Image Upload</Heading>
         <Box position="relative" size="lg" height="100px" width="300px" padding="8px" border="1px solid" borderColor="gray.200" _placeholder={{ color: "gray.500" }}>
-          <Box as="label" position="absolute" top="-50px" left="-50px" p="24px" cursor="pointer">
+          <Box as="label" position="absolute" top="-20px" left="-20px" p="24px" cursor="pointer">
             <input type="file" accept="image/*" multiple onChange={handleFileChange} ref={fileInputRef} hidden />
             <FaPaperclip color="gray.300" />
           </Box>
