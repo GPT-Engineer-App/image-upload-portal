@@ -51,12 +51,7 @@ const Index = () => {
             <Text>{inputText}</Text>
           </Box>
         </Box>
-        <InputGroup>
-          <InputLeftElement pointerEvents="none" onClick={handleFileInputClick}>
-            <FaPaperclip color="gray.300" />
-          </InputLeftElement>
-          <Input type="file" accept="image/*" multiple onChange={handleFileChange} size="lg" height="100px" width="300px" ref={fileInputRef} />
-        </InputGroup>
+        {/* The InputGroup containing the file input and paperclip icon has been removed */}
         <Button leftIcon={<FaUpload />} onClick={handleUpload}>
           Upload Images
         </Button>
