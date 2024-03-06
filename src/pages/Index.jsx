@@ -50,7 +50,7 @@ const Index = () => {
             {selectedFiles.map((file, index) => (
               <Box position="relative" key={index}>
                 <Image src={file} alt={`preview ${index}`} boxSize="80px" objectFit="cover" />
-                <Button position="absolute" right="0" top="0" size="xs" borderRadius="full" onClick={() => handleRemoveImage(index)}>
+                <Button position="absolute" right="0" top="0" size="xs" borderRadius="full" onClick={() => handleRemoveImage(index)} zIndex="10">
                   <Icon viewBox="0 0 24 24">
                     <path fill="currentColor" d="M18 6L6 18" />
                     <path fill="currentColor" d="M6 6L18 18" />
