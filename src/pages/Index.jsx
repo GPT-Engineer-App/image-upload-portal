@@ -43,7 +43,7 @@ const Index = () => {
             <input type="file" accept="image/*" multiple onChange={handleFileChange} ref={fileInputRef} hidden />
             <FaPaperclip color="gray.300" />
           </Box>
-          <Input value={inputText} onChange={(e) => setInputText(e.target.value)} variant="unstyled" placeholder="Type your text here..." />
+          <Input value={inputText} onChange={(e) => setInputText(e.target.value)} variant="unstyled" placeholder="" />
           <Box>
             {selectedFiles.map((file, index) => (
               <Image key={index} src={file} alt={`preview ${index}`} maxH="200px" w="auto" />
