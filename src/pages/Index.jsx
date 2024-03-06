@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Box, Button, Container, Input, Stack, Image, Text, VStack, Heading, useToast } from "@chakra-ui/react";
-import { FaUpload } from "react-icons/fa";
+import { Box, Button, Container, Input, Stack, Image, Text, VStack, Heading, useToast, InputGroup, InputLeftElement } from "@chakra-ui/react";
+import { FaUpload, FaPaperclip } from "react-icons/fa";
 
 const Index = () => {
   const [selectedFiles, setSelectedFiles] = useState([]);
@@ -33,7 +33,10 @@ const Index = () => {
       <VStack spacing={8}>
         <Heading>Image Upload</Heading>
         <Box value={inputText} onChange={(e) => setInputText(e.target.value)} size="lg" height="100px" width="300px" padding="8px" border="1px solid" borderColor="gray.200" contentEditable _placeholder={{ color: "gray.500" }} dangerouslySetInnerHTML={{ __html: imagesPreview + inputText }} />
-        <Input type="file" accept="image/*" multiple onChange={handleFileChange} size="lg" height="100px" width="300px" />
+        <InputGroup>
+          <InputLeftElement pointerEvents="none" children={<FaPaperclip color="gray.300" />} />
+          <Input type="file" accept="image/*" multiple onChange={handleFileChange} size="lg" height="100px" width="300px" />
+        </InputGroup>
         <Button leftIcon={<FaUpload />} onClick={handleUpload}>
           Upload Images
         </Button>
