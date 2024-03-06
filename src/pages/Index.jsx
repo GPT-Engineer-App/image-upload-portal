@@ -51,8 +51,8 @@ const Index = () => {
           </Box>
         </Box>
         <InputGroup>
-          <InputLeftElement pointerEvents="none">
-            <FaPaperclip color="gray.300" onClick={handleFileInputClick} />
+          <InputLeftElement pointerEvents="none" onClick={handleFileInputClick}>
+            <FaPaperclip color="gray.300" />
           </InputLeftElement>
           <Input type="file" accept="image/*" multiple onChange={handleFileChange} size="lg" height="100px" width="300px" ref={fileInputRef} />
         </InputGroup>
