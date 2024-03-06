@@ -32,7 +32,12 @@ const Index = () => {
     <Container maxW="container.lg" py={8}>
       <VStack spacing={8}>
         <Heading>Image Upload</Heading>
-        <Box value={inputText} onChange={(e) => setInputText(e.target.value)} size="lg" height="100px" width="300px" padding="8px" border="1px solid" borderColor="gray.200" contentEditable _placeholder={{ color: "gray.500" }} dangerouslySetInnerHTML={{ __html: imagesPreview + inputText }} />
+        <Box position="relative" value={inputText} onChange={(e) => setInputText(e.target.value)} size="lg" height="100px" width="300px" padding="8px" border="1px solid" borderColor="gray.200" contentEditable _placeholder={{ color: "gray.500" }}>
+          <Box position="absolute" top="0" left="0" p="8px">
+            <FaPaperclip color="gray.300" />
+          </Box>
+          <Box dangerouslySetInnerHTML={{ __html: imagesPreview + inputText }} />
+        </Box>
         <InputGroup>
           <InputLeftElement pointerEvents="none" children={<FaPaperclip color="gray.300" />} />
           <Input type="file" accept="image/*" multiple onChange={handleFileChange} size="lg" height="100px" width="300px" />
